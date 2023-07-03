@@ -31,9 +31,17 @@
 
 
       <h3 class="text-white bg-dark text-center p-3">Sign-Up Here</h3>
+      
+      <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      
+        <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+      </div>
+      
+      
 
       <div class="card p-2">
-    <form action="" method="post">{% csrf_token %}
+    <form action="/auth/signup/" method="post">{% csrf_token %}
         <div class="form-group">
           <h5>
             <span><i class="bx bx-envelope"></i></span>
@@ -43,7 +51,7 @@
             name="email"
             id="email"
             class="form-control mb-3"
-            placeholder="Enter Your Email Address"
+            placeholder="Enter Your Email Address" required
             aria-describedby="email"
           />
         </div>
@@ -54,10 +62,10 @@
           </h5>
           <input
             type="password"
-            name="password"
-            id="password"
+            name="pass1"
+            id="pass1"
             class="form-control mb-3"
-            placeholder="Enter Your Password"
+            placeholder="Enter Your Password" required
             aria-describedby="email"
           />
         </div>
@@ -68,10 +76,10 @@
           </h5>
           <input
             type="password"
-            name="password"
-            id="password"
+            name="pass2"
+            id="password2"
             class="form-control mb-3"
-            placeholder="Confirm Your Password"
+            placeholder="Confirm Your Password" required
             aria-describedby="email"
           />
         </div>
