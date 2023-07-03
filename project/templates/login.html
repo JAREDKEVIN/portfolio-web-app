@@ -27,8 +27,6 @@
         <br>
         <br>
         <br>
-        <br>
-
 
       <h3 class="text-white bg-dark text-center p-3">Login Here</h3>
 
@@ -62,7 +60,7 @@
           />
         </div>
 
-        <div class="form-group p-2">
+        {% comment %} <div class="form-group p-2">
           <h5>
             <span><i class="fas fa-lock"></i> Confirm Password</span>
           </h5>
@@ -74,12 +72,20 @@
             placeholder="Confirm Your Password"
             aria-describedby="email"
           />
-        </div>
+        </div> {% endcomment %}
 
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-dark">SignUp</button>
+          <button type="submit" class="btn btn-dark">Login</button>
         </div>
+
+        <br>
+      New User ?
+  <a href="/auth/signup">SignUp</i>
+    
       </div>
+
+      
+
     </form>
     </div>
 
