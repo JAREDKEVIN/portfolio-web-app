@@ -1,17 +1,17 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import redirect,render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 
 # Create your views here.
-
 def signup(request):
+
     if request.method=="POST":
         get_email=request.POST.get('email')
         get_password=request.POST.get('pass1')
         get_confirm_password=request.POST.get('pass2')
         if get_password != get_confirm_password:
-            messages.info(request,'Password is not matching!!')
+            messages.info(request,"Password is not matching!!")
             return redirect('/auth/signup/')
         
         try:
@@ -24,13 +24,10 @@ def signup(request):
         myuser.save()
         messages.success(request,"User is Created, Please Login!!")
         return(redirect,'/auth/login/')
-
-        # print(get_email)
-        # print(get_password)
-        # print(get_confirm_password)   
     return render(request,'signup.html')
 
     
+
 
 
 def handleLogin(request):
