@@ -1,61 +1,42 @@
 {% extends 'base.html' %}
 
 
+    {% block title %}
 
-        {% block title %}
+    KIPKEMOI KEVIN- PORTFOLIO
 
-        KIPKEMOI KEVIN- PORTFOLIO 
-        
-        {%endblock title %} 
-        
- 
-  {% block hero %}
+    {% endblock title %}
 
-        <!-- ======= Hero Section ======= -->
 
-        <section
-          id="hero"
-          class="d-flex flex-column justify-content-center align-items-center"
-        >
-          <div class="hero-container" data-aos="fade-in">
-            <h1>I HAVE EXPERTISE IN:</h1>
-            <p>
-              <span
-                class="typed"
-                data-typed-items="UI/UX Design,Full Stack Development,I.T Support,Digital Marketing,Agile & Scrum,S.E.O"
-              ></span>
-            </p>
-            <br />
-          </div>
-        </section>
-        <!-- End Hero -->
+    {% block hero %}
 
+    <!-- ======= Hero Section ======= -->
+    
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <div class="hero-container" data-aos="fade-in">
+      {% comment %} <h1>WELCOME,</h1> {% endcomment %}
+      <h1>WELCOME,<br>I HAVE EXPERTISE IN:</h1>
+
+      <p><span class="typed" data-typed-items="UI/UX Design,Full Stack Development,I.T Support,Digital Marketing,Agile & Scrum,S.E.O"></span></p>
+      <br>
+      
+    </div>
+  </section><!-- End Hero -->
+  
   {% endblock hero %}
 
+  {% block body %}
 
 
+   {% for message in messages %}
 
- {% block body %} 
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      
+        <strong>{{message}}</strong> 
+      </div>
+      
+      {% endfor %}
 
 
-
- 
-    {% for message in messages %}
-
-          <div
-            class="alert alert-{{message.tags}} alert-dismissible fade show"
-            role="alert"
-          >
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="alert"
-              aria-label="Close"
-            ></button>
-
-            <strong>{{message}}</strong>
-          </div>
-
-    {% endfor %} 
-
-{% endblock body %}
+  {% endblock body %}
