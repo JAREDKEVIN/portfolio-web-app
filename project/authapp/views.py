@@ -49,4 +49,4 @@ def handleLogin(request):
 def handleLogout(request):
     logout(request)
     messages.success(request,"Logged out Successfully!!")
-    return render(request,'login.html')
+    return render(request,'login.html')                                                                              
