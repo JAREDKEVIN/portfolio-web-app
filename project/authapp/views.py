@@ -39,7 +39,7 @@ def handleLogin(request):
         if myuser is not None:
             login(request,myuser)
             messages.success(request,"Login Success!!")
-            return redirect("/")
+            return redirect('/')
         else:
             messages.error(request,"Invalid Credentials")
     return render(request,'login.html')
