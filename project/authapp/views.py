@@ -17,7 +17,7 @@ def signup(request):
         try:
             if User.objects.get(username=get_email):
                 messages.warning(request,"Email is already taken!!")
-                return redirect('/auth/signup/')
+            return redirect('/auth/signup/')
         except Exception as identifier:
             pass
         myuser=User.objects.create_user(get_email,get_email,get_password)
