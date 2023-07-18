@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.contrib import messages
 
 # Create your views here.
 
@@ -12,7 +13,18 @@ def about(request):
 
 
 def contact(request):
+    if request.method=="POST":
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phonenumber=request.POST.get('phonenumber')
+        description=request.POST.get('description')
+        
+        messages.info(request, f'The name is {name} , email is{email} your phone number is  {phonenumber} and the message is: "{description}"')
+        
+        return redirect('/contact')
+        
     return render(request,'contact.html')
+
 
 
 def portfolio(request):
