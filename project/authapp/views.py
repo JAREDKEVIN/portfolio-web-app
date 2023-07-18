@@ -17,7 +17,7 @@ def signup(request):
         try:
             if User.objects.get(username=get_email):
                 messages.warning(request,"Email is already taken!!")
-            return redirect('/auth/signup/')
+                return redirect('/auth/signup/')
         except Exception as identifier:
             pass
         myuser=User.objects.create_user(get_email,get_email,get_password)
@@ -26,10 +26,6 @@ def signup(request):
         return redirect('/auth/login/')
     return render(request,'signup.html')
 
-    
-
-
-
 def handleLogin(request):
     if request.method=="POST":
         get_email=request.POST.get('email')
@@ -37,12 +33,12 @@ def handleLogin(request):
         myuser= authenticate(username=get_email, password=get_password)
         
         if myuser is not None:
-         login(request,myuser)
-         messages.success(request,"Login Success!!")
-        return redirect('/')
-    else:
-        messages.error(request,"Invalid Credentials")
-        return render(request,'login.html')
+            login(request,myuser)
+            messages.success(request,"Login Success!!")
+            return redirect('/')
+        else:
+            messages.error(request,"Invalid Credentials")
+    return render(request,'login.html')
 
 
 
