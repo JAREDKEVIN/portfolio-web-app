@@ -42,13 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'portfolio',
     'authapp',
-    'rest_framework',
-
-    
-   
-    
-    
-   
+    'rest_framework', 
 ]
 
 MIDDLEWARE = [
