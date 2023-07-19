@@ -20,7 +20,7 @@ def signup(request):
                 return redirect('/auth/signup/')
         except Exception as identifier:
             pass
-        myuser=User.objects.create_user(get_email,get_email,get_password)
+        myuser=User.objects.create_user(get_email,get_password)
         myuser.save()
         messages.success(request,"User is Created, Please Login!!")
         return redirect('/auth/login/')
@@ -30,7 +30,7 @@ def handleLogin(request):
     if request.method=="POST":
         get_email=request.POST.get('email')
         get_password=request.POST.get('pass1')
-        myuser= authenticate(username=get_email, password=get_password)
+        myuser= authenticate(username=get_email,  password=get_password)
         
         if myuser is not None:
             login(request,myuser)
