@@ -33,6 +33,10 @@ def contact(request):
 def portfolio(request):
     return render(request,'portfolio.html')
 
+def blog(request):
+    return render(request,'handleblog.html')
+
+
 def resume(request):
     return render(request,'resume.html')
 
