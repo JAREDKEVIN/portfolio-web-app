@@ -23,17 +23,6 @@
 
 {% block body %}
 
-
-      {% for message in messages %}
-
-      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      
-        <strong>{{message}}</strong> 
-      </div>
-      
-      {% endfor %}
-
  <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
       <div class="container">
@@ -71,16 +60,34 @@
 
           </div>
 
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="/contact" method="post" role="form" class="php-email-form">{% csrf_token %}
-              <div class="row">
+  <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch" >
+        <div class="row">
+
+
+      <h3 class="text-white bg-dark text-center p-3">COMPOSE MESSAGE/INQUIRY</h3>
+
+      {% for message in messages %}
+
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      
+        <strong>{{message}}</strong> 
+      </div>
+      
+      {% endfor %}
+      
+      
+      <div class="card p-2">
+    <form action="/contact" method="POST"> {% csrf_token %}
+   
+        <div class="row">
                 <div class="form-group col-md-6">
                   <label for="name" class="fas fa-user" > Your Name</label>
                   <input type="text" name="name" class="form-control" id="name" required>
                 </div>
                 <div class="form-group col-md-6">
                   <label for="email"  class="fas fa-envelope"> Your Email</label>
-                  <input type="email" value="{{user.email}}" class="form-control" name="{{user.email}}" id="email" required>
+                  <input type="email" value="{{user.email}}" class="form-control" name="email" id="email" required>
                 </div>
               </div>
               <div class="form-group">
@@ -91,18 +98,23 @@
                 <label for="description" class="fas fa-message" > Message</label>
                 <textarea type="text"class="form-control" name="description" rows="10" required></textarea>
               </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Submit Message</button></div>
-            </form>
-          </div>
 
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-dark">Submit Message</button>
         </div>
 
-      </div>
+       
+
+      
+    </form>
+    </div>
+
+
+    
+  </div>
+</div>
+
+          
     </section><!-- End Contact Section -->
 
       
